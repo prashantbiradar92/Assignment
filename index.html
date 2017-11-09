@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.4/angular.min.js"></script>
+    <script src="app.js"></script>
+
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+</head>
+
+<body>
+
+    <div ng-app="app" class="container">
+        <div ng-controller="MainController as vm" align="center" class="row">
+            <div>
+                <h2> Assignment for ThoughtNirvana by Prashant Biradar</h2>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-5" style="padding:10%">
+                    <div class="form-group" style="width:70%;">
+                        <span>Availabe List</span>
+                        <label for="st">Search</label>
+                        <input name="st" id="st" type="text" placeholder="select name" ng-model="selected" typeahead="i.name  for i in vm.list1 | filter:$viewValue" typeahead-on-select='vm.onSelect($item, $model, $label)' class="form-control">
+                    </div>
+                    <div>
+                        <select id="availabelist" size="10" style="width:275px" ng-model="vm.selectedList1Index" ng-options="vm.list1.indexOf(i)  as i.name for i in vm.list1 | orderBy:'name'"></select>
+                    </div>
+
+                </div>
+                <div class="col-lg-2" style="padding-top:20%">
+                    <div style="float:left;">
+                        <button type="button" class="btn btn-primary" ng-click="vm.moveRight()">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        </button>
+
+                    </div>
+                    <div style="float:left;clear:left">
+                        <button type="button" class="btn btn-default" ng-click="vm.moveLeft()">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        </button>
+
+                    </div>
+
+                </div>
+                <div class="col-lg-5" style="padding-top:15%">
+                    <div><span>Selected List</span></div>
+                    <div>
+                        <select id="availabelist" size="10" style="width:275px" ng-model="vm.selectedList2Index" ng-options="vm.list2.indexOf(i) as i.name for i  in vm.list2 | orderBy:'name'"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
